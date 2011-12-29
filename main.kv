@@ -1,4 +1,4 @@
-#:kivy 1.0
+#:kivy 1.0.9
 
 FloatLayout:
     canvas:
@@ -21,21 +21,24 @@ FloatLayout:
 
 <SelectorWidget>:
     screen: screen_switch
+    mix: mix_switch
     GridLayout:
         cols: 2
         canvas:
+            Clear:
             Color:
-                rgb: (.5, .5, .5)
+                rgb: .5, .5, .5
             Rectangle:
                 size: self.size
                 pos: self.pos
-        size: (200,200)
+        size: 200,200
         Switch:
             id: screen_switch
             on_active: root.set_screen()
         Label:
             text: 'Screens'
         Switch:
+            id: mix_switch
             on_active: root.set_mix()
         Label:
             text: 'Mixer'
@@ -47,12 +50,13 @@ FloatLayout:
     GridLayout:
         cols: 4
         canvas:
+            Clear:
             Color:
-                rgb: (1, .2, .2)
+                rgb: .3, .3, .3
             Rectangle:
                 size: self.size
                 pos: self.pos
-        size: (300,500)
+        size: 300,500
         Label:
             text: 'Video'
         Label:
@@ -110,3 +114,20 @@ FloatLayout:
             text: 'Screen1'
             on_press: root.screen4_4()
 
+<MixWidget>:
+    StackLayout:
+        orentation: 'horizontal'
+        canvas:
+            Color:
+                rgb: .3, .3, .3
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        size: 300,500
+        Slider:
+            orentation: 'vertical'
+        Slider:
+            orentation: 'vertical'
+        Slider:
+            orentation: 'vertical'
+        

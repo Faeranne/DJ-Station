@@ -1,5 +1,5 @@
 import kivy
-kivy.require('1.0.6')
+kivy.require('1.0.9')
 
 from kivy.app import App
 from kivy.uix.floatlayout import FloatLayout
@@ -40,25 +40,35 @@ class ScreenWidget(Scatter):
         pass
     def screen4_4(self):
         pass
+    
+class MixWidget(Scatter):
+    pass
+    
 class SelectorWidget(Scatter):
     screen=ObjectProperty(None)
-    screenon=False
+    mix=ObjectProperty(None)
     def set_screen(self):
         if(self.screen.active):
             MainApp().addscreen()
         else:
             MainApp().removescreen()
-    def set_mix(self):
-        print "click2"
+    def set_mix(self):        
+        if(self.mix.active):
+            MainApp().addmix()
+        else:
+            MainApp().removemix()
     def set_video(self):
         print "click3"
 class MainApp(App):
     def build(self):
         global root
         global screen
-        self.screen=ScreenWidget()
+        global mix
+        self.screen=ScreenWidget(size=(200,200))
         screen=self.screen
-        self.select = SelectorWidget()
+        self.mix=MixWidget(size=(200,200))
+        mix=self.mix
+        self.select = SelectorWidget(size=(300,500))
         root = self.root
         root.add_widget(self.select)
         return root
@@ -66,5 +76,9 @@ class MainApp(App):
         root.add_widget(screen)
     def removescreen(self):
         root.remove_widget(screen)
+    def addmix(self):
+        root.add_widget(mix)
+    def removemix(self):
+        root.remove_widget(mix)
 if __name__ in ('__main__', '__android__'):
     MainApp().run()
