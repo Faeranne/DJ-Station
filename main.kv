@@ -1,0 +1,28 @@
+#:kivy 1.0
+
+<SelectorWidget>:
+    
+    Scatter:
+        GridLayout:
+            cols: 2
+            canvas:
+                Color:
+                    rgb: (.5, .5, .5)
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            size: (200,200)
+            Switch:
+                on_active: root.set_screen()
+            Label:
+                text: 'Screens'
+            Switch:
+                on_active: root.set_mix()
+            Label:
+                text: 'Mixer'
+            Switch:
+                on_active: root.set_video()
+            Label:
+                text: 'Video Matrix'
+            
+
