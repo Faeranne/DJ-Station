@@ -7,6 +7,8 @@ from kivy.uix.scatter import Scatter
 from kivy.uix.anchorlayout import AnchorLayout
 from kivy.properties import ObjectProperty, StringProperty, BooleanProperty
 
+class VideoWidget(Scatter):
+    pass
 class ScreenWidget(Scatter):
     def screen1_1(self):
         pass
@@ -47,6 +49,7 @@ class MixWidget(Scatter):
 class SelectorWidget(Scatter):
     screen=ObjectProperty(None)
     mix=ObjectProperty(None)
+    video=ObjectProperty(None)
     def set_screen(self):
         if(self.screen.active):
             MainApp().addscreen()
@@ -58,12 +61,19 @@ class SelectorWidget(Scatter):
         else:
             MainApp().removemix()
     def set_video(self):
-        print "click3"
+        if(self.video.active):
+            MainApp().addvideo()
+        else:
+            MainApp().removevideo()
+
 class MainApp(App):
     def build(self):
         global root
         global screen
         global mix
+        global video
+        self.video=VideoWidget()
+        video=self.video
         self.screen=ScreenWidget(size=(200,200))
         screen=self.screen
         self.mix=MixWidget(size=(200,200))
@@ -80,5 +90,10 @@ class MainApp(App):
         root.add_widget(mix)
     def removemix(self):
         root.remove_widget(mix)
+    def addvideo(self):
+        root.add_widget(video)
+    def removevideo(self):
+        root.remove_widget(video)
+
 if __name__ in ('__main__', '__android__'):
     MainApp().run()

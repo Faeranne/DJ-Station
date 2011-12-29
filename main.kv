@@ -22,6 +22,7 @@ FloatLayout:
 <SelectorWidget>:
     screen: screen_switch
     mix: mix_switch
+    video: video_switch
     GridLayout:
         cols: 2
         canvas:
@@ -43,6 +44,7 @@ FloatLayout:
         Label:
             text: 'Mixer'
         Switch:
+            id: video_switch
             on_active: root.set_video()
         Label:
             text: 'Video Matrix'
@@ -130,4 +132,9 @@ FloatLayout:
             orentation: 'vertical'
         Slider:
             orentation: 'vertical'
+<VideoWidget>
+    GridLayout:
+        cols: 4
+        Button:
+            text: 'hello'
         
