@@ -1,28 +1,112 @@
 #:kivy 1.0
 
+FloatLayout:
+    canvas:
+        Color:
+            rgb: 1, 1, 1
+        Rectangle:
+            source: 'data/images/background.jpg'
+            size: self.size
+
+    BoxLayout:
+        padding: 10
+        spacing: 10
+        size_hint: 1, None
+        pos_hint: {'top': 1}
+        height: 44
+        Image:
+            size_hint: None, None
+            size: 24, 24
+            source: 'data/logo/kivy-icon-24.png'
+
 <SelectorWidget>:
-    
-    Scatter:
-        GridLayout:
-            cols: 2
-            canvas:
-                Color:
-                    rgb: (.5, .5, .5)
-                Rectangle:
-                    size: self.size
-                    pos: self.pos
-            size: (200,200)
-            Switch:
-                on_active: root.set_screen()
-            Label:
-                text: 'Screens'
-            Switch:
-                on_active: root.set_mix()
-            Label:
-                text: 'Mixer'
-            Switch:
-                on_active: root.set_video()
-            Label:
-                text: 'Video Matrix'
-            
+    screen: screen_switch
+    GridLayout:
+        cols: 2
+        canvas:
+            Color:
+                rgb: (.5, .5, .5)
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        size: (200,200)
+        Switch:
+            id: screen_switch
+            on_active: root.set_screen()
+        Label:
+            text: 'Screens'
+        Switch:
+            on_active: root.set_mix()
+        Label:
+            text: 'Mixer'
+        Switch:
+            on_active: root.set_video()
+        Label:
+            text: 'Video Matrix'
+<ScreenWidget>:
+    GridLayout:
+        cols: 4
+        canvas:
+            Color:
+                rgb: (1, .2, .2)
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        size: (300,500)
+        Label:
+            text: 'Video'
+        Label:
+            text: 'Visualizer'
+        Label:
+            text: 'Karaoke'
+        Label:
+            text: 'Live'
+        Button:
+            text: 'Screen1'
+            on_press: root.screen1_1()
+        Button:
+            text: 'Screen1'
+            on_press: root.screen1_2()
+        Button:
+            text: 'Screen1'
+            on_press: root.screen1_3()
+        Button:
+            text: 'Screen1'
+            on_press: root.screen1_4()
+        Button:
+            text: 'Screen1'
+            on_press: root.screen2_1()
+        Button:
+            text: 'Screen1'
+            on_press: root.screen2_2()
+        Button:
+            text: 'Screen1'
+            on_press: root.screen2_3()
+        Button:
+            text: 'Screen1'
+            on_press: root.screen2_4()
+        Button:
+            text: 'Screen1'
+            on_press: root.screen3_1()
+        Button:
+            text: 'Screen1'
+            on_press: root.screen3_2()
+        Button:
+            text: 'Screen1'
+            on_press: root.screen3_3()
+        Button:
+            text: 'Screen1'
+            on_press: root.screen3_4()
+        Button:
+            text: 'Screen1'
+            on_press: root.screen4_1()
+        Button:
+            text: 'Screen1'
+            on_press: root.screen4_2()
+        Button:
+            text: 'Screen1'
+            on_press: root.screen4_3()
+        Button:
+            text: 'Screen1'
+            on_press: root.screen4_4()
 
