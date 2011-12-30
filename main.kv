@@ -8,22 +8,24 @@ FloatLayout:
             source: 'data/images/background.jpg'
             size: self.size
 
-    BoxLayout:
-        padding: 10
-        spacing: 10
-        size_hint: 1, None
-        pos_hint: {'top': 1}
-        height: 44
-        Image:
-            size_hint: None, None
-            size: 24, 24
-            source: 'data/logo/kivy-icon-24.png'
+#    BoxLayout:
+#        padding: 10
+#        spacing: 10
+#        size: 20,20
+#        height: 44
+#        Image:
+#            size_hint: None, None
+#            size: 24, 24
+#            source: 'data/logo/kivy-icon-24.png'
 
 <SelectorWidget>:
+    size_hint: .4,.4
     screen: screen_switch
     mix: mix_switch
     video: video_switch
     GridLayout:
+        padding: 30
+        size: root.size
         cols: 2
         canvas:
             Clear:
@@ -32,7 +34,6 @@ FloatLayout:
             Rectangle:
                 size: self.size
                 pos: self.pos
-        size: 200,200
         Switch:
             id: screen_switch
             on_active: root.set_screen()
@@ -49,7 +50,11 @@ FloatLayout:
         Label:
             text: 'Video Matrix'
 <ScreenWidget>:
+    size_hint: .4,.6
+    spacing: 10
     GridLayout:
+        padding: 30
+        size: root.size
         cols: 4
         canvas:
             Clear:
@@ -58,7 +63,6 @@ FloatLayout:
             Rectangle:
                 size: self.size
                 pos: self.pos
-        size: 300,500
         Label:
             text: 'Video'
         Label:
@@ -117,7 +121,10 @@ FloatLayout:
             on_press: root.screen4_4()
 
 <MixWidget>:
+    size_hint: .4,.6
     StackLayout:
+        padding: 30
+        size: root.size
         orentation: 'horizontal'
         canvas:
             Color:
@@ -125,7 +132,6 @@ FloatLayout:
             Rectangle:
                 size: self.size
                 pos: self.pos
-        size: 300,500
         Slider:
             orentation: 'vertical'
         Slider:
@@ -133,7 +139,16 @@ FloatLayout:
         Slider:
             orentation: 'vertical'
 <VideoWidget>
+    size_hint: .5,.6
     GridLayout:
+        canvas:
+            Color:
+                rgb: .3, .3, .3
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        padding: 30
+        size: root.size
         cols: 4
         Button:
             text: 'hello'
